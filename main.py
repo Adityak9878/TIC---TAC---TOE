@@ -43,13 +43,21 @@ if __name__ == '__main__':
        if(turn==1):
            print(" 'X' Chance")
            value=int(input("Please Enter A Value : "))
-           if(value>=0 and value <=8):
+           if(value>=0 and value <=8 and xstate[value]==0 and ystate[value]==0):
                 xstate[value]=1
+           else:
+                print("Already Entered Value !!")
+                value2=int(input("Re-Enter the Value : "))
+                xstate[value2]=1
        else:
            print(" 'O' Chance")
            value = int(input("Please Enter A Value : "))
-           if (value >= 0 and value <= 8):
+           if (value >= 0 and value <= 8 and ystate[value]==0 and xstate[value]==0):
               ystate[value] = 1
+           else:
+               print("Already Entered Value !!")
+               value2 = int(input("Re-Enter the Value : "))
+               ystate[value2] = 1
        k=checkWin(xstate,ystate)
        if(k!=-1):
            print_hi(xstate,ystate)
