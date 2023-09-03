@@ -35,9 +35,11 @@ if __name__ == '__main__':
    xstate=[0,0,0,0,0,0,0,0,0]
    ystate=[0,0,0,0,0,0,0,0,0]
    turn =1  # 1 for X  0 For Y .
+   count=0
    print("Welcome To TIC_TAC_TOE")
    while(True):
        print_hi(xstate,ystate)
+       count+=1
        if(turn==1):
            print(" 'X' Chance")
            value=int(input("Please Enter A Value : "))
@@ -50,6 +52,11 @@ if __name__ == '__main__':
               ystate[value] = 1
        k=checkWin(xstate,ystate)
        if(k!=-1):
+           print_hi(xstate,ystate)
+           break
+       if(count==9):
+           print_hi(xstate,ystate)
+           print("Match Drawn !!")
            break
 
        turn=1-turn
